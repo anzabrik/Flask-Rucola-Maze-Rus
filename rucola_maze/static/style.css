@@ -1,0 +1,116 @@
+body {
+    font-family: PT Sans;
+    color: #0C190B;
+    background-color: #FFFDF8;
+    width: 75%;
+    margin: 0 auto;
+
+}
+
+.error {
+    color: red;
+    font-size: 1.3em;
+}
+
+.message {
+    font-size: 1.3em;
+}
+
+.small-text {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+a {
+    color: #559825;
+
+}
+
+a:hover {
+    color: #0C190B;
+}
+
+.navbar-light a {
+    background-color: #FEF9E8;
+}
+
+
+.bg-light {
+    background-color: #FEF9E8 !important;
+}
+
+a.bg-light:hover,
+a.bg-light:focus {
+    background-color: #FEF9E8 !important;
+}
+
+
+.h1 h1 {
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 2.7rem;
+    margin-top: 24;
+
+}
+
+.btn-primary {
+    background-color: #356116;
+    color: #FFFDF8;
+    font-family: Nunito;
+    border-color: #356116;
+}
+
+.btn-primary:hover {
+    background-color: #559825;
+    border-color: #356116;
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+    background-color: #356116;
+    border: 2px solid;
+    border-color: #559825;
+
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(85, 152, 37, 0.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:not(:disabled):not(.disabled).active,
+.show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #356116;
+    border-color: #356116;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(85, 152, 37, 0.5);
+}
+
+.btn-warning {
+    font-family: Nunito;
+}
+
+.right {
+    float: right;
+}
+
+.table .thead-light th {
+    color: #0C190B;
+    background-color: #FFF7DA;
+    border-color: #FFF7DA;
+}
+
+.navbar-light {
+    background-color: #FEF9E8;
+}
+
+.wrong {
+    color: red;
+    font-size: 2rem;
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+Удалить требование рецепта
+{% endblock %}
+{% block content %}
+<div class="h1">
+    <h1>Удалить требование рецепта</h1>
+</div>
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form method="post"
+    action="{{ url_for('inventory.recipe_requirement_delete', recipe_requirement_id=recipe_requirement.id) }}">
+    <p class="error">Вы уверены, что хотие удалить "{{ recipe_requirement }}" из списка?</p>
+    <input type="submit" name="yes" value="Удалить" class="btn btn-danger">
+    <input type="submit" name="no" value="Оставить" class="btn btn-primary">
+</form>
+{% endblock %}

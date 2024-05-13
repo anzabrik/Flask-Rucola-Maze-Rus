@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+Выручка и прибыль
+{% endblock %}
+{% block content %}
+
+<div class="h1">
+    <h1>Выручка и прибыль</h1>
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% else %}
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+{% endif %}
+{% endwith %}
+
+<table class="table table-bordered w-auto">
+    <tr>
+        <td>Общая выручка (сумма всех зарегистрированных покупок)</td>
+        <td>{{ revenue }} руб.</td>
+    </tr>
+    <tr>
+        <td>Расходы (сумма всех использованных ингредиентов)</td>
+        <td>{{ cost_of_ingredients }} руб.</td>
+    </tr>
+    <tr>
+        <td>Прибыль (выручка минус расходы)</td>
+        <td>{{ profit }}руб.</td>
+    </tr>
+</table>
+
+{% endblock %}

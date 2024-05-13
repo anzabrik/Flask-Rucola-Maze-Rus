@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}
+Новая покупка
+{% endblock %}
+
+{% block content %}
+<div class="h1">
+    <h1>Новая покупка</h1>
+</div>
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% if available_menu_items %}
+
+<form method="post" action="{{ url_for('inventory.purchase_new') }}">
+    {{ form.csrf_token }}
+    <br>
+
+    {{ form.available_menu_items.label }}
+    {{ form.available_menu_items() }}
+
+    <br>
+    <br>
+    <input type="submit" value="Отправить" class="btn btn-primary btn-lg" class="form-control">
+</form>
+
+{% else %}
+<p>Похоже, сейчас в меню нет доступных для заказа блюд. Пожалуйста, свяжитесь с администратором.</p>
+{% endif %}
+
+{% endblock %}

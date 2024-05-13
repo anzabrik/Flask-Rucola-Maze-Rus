@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block title %}
+Блюда
+{% endblock %}
+
+{% block content %}
+<div class="h1">
+    <h1>Блюда</h1>
+</div>
+<div><a class="btn btn-primary btn-lg right" href="{{ url_for('inventory.menu_item_new') }}" role="button">Добавить
+        блюдо</a>
+</div>
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Название</th>
+            <th>Цена, руб.</th>
+            <th>Наличие</th>
+            <th>Требования рецепта</th>
+            <th>Редактировать</th>
+            <th>Удалить</th>
+        </tr>
+    </thead>
+
+    {% for menu_item in menu_items %}
+    <tr>
+        <td>{{ menu_item.title }}</td>
+        {# <td>${{ "%.2f"|format(menu_item.price) }}</td> #}
+        <td>{{ menu_item.price_dollars }}.{{ menu_item.price_cents }}</td>
+        {% if menu_item in available_menu_items %}
+        <td>В наличии</td>
+        {% else %}
+        <td>Нет</td>
+        {% endif %}
+        <td>
+            <ul>
+                {% for recipe_requirement in menu_item.in_recipe_requirements.all() %}
+                <li>{{ recipe_requirement }}</li>
+                {% endfor %}
+            </ul>
+        </td>
+        <td><a href="{{ url_for('inventory.menu_item_edit', menu_item_id=menu_item.id) }}"><button
+                    class="btn btn-primary">Редактировать</button></a>
+        </td>
+        <td><a href="{{ url_for('inventory.menu_item_delete', menu_item_id=menu_item.id) }}">❌</td>
+    </tr>
+    <p>{{ m }}</p>
+    {% endfor %}
+
+</table>
+{% endblock %}

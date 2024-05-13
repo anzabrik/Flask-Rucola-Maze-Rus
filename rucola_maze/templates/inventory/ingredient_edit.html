@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}
+Редактировать ингредиент
+{% endblock %}
+
+{% block content %}
+<div class="h1">
+    <h1>Редактировать ингредиент</h1>
+</div>
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form action="{{ url_for('inventory.ingredient_edit', ingredient_id=ingredient.id) }}" method="post">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>{{ form.name.label }}</td>
+            <td> {{ form.name() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.quantity_available.label }}</td>
+            <td> {{ form.quantity_available() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.unit.label }}</td>
+            <td> {{ form.unit() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.unit_price_dollars.label }}</td>
+            <td> {{ form.unit_price_dollars() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.unit_price_cents.label }}</td>
+            <td> {{ form.unit_price_cents() }}</td>
+        </tr>
+
+    </table>
+    <input type="submit" value="Отправить" class="btn btn-primary btn-lg" class="form-control">
+</form>
+{% endblock %}

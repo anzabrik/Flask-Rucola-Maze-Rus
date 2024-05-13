@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+Новое требование рецепта
+{% endblock %}
+
+{% block content %}
+<div class="h1">
+    <h1>Новое требование рецепта</h1>
+</div>
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+
+<form method="POST" action="{{ url_for('inventory.recipe_requirement_new') }}">
+    {{ form.csrf_token }}
+    <table>
+        <tr>
+            <td>{{ form.all_menu_items_possible.label }}</td>
+            <td> {{ form.all_menu_items_possible() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.all_ingredients_possible.label }}</td>
+            <td> {{ form.all_ingredients_possible() }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.quantity_required.label }}</td>
+            <td> {{ form.quantity_required() }}</td>
+        </tr>
+    </table>
+    <input type="submit" value="Отправить" class="btn btn-primary btn-lg" class="form-control">
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Удалить блюдо
+{% endblock %}
+{% block content %}
+<div class="h1">
+    <h1>Удалить блюдо</h1>
+</div>
+<p class="small-text">Вы вошли в систему как {{ current_user.username }}</p>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<p class="message">{{ message }}</p>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<form method="post" action="{{ url_for('inventory.menu_item_delete', menu_item_id=menu_item.id) }}">
+    <p class="error">Вы уверены, что хотите удалить блюдо "{{ menu_item }}" из меню?</p>
+    <input type="submit" name="yes" value="Да" class="btn btn-danger">
+    <input type="submit" name="no" value="Нет" class="btn btn-primary">
+</form>
+{% endblock %}
