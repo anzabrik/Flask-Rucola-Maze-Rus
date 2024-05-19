@@ -1,9 +1,9 @@
-# Rucola Maze: веб-приложение на Джанго, которое ведет учет продуктов и покупок в ресторане
+# Rucola Maze: веб-приложение на Flask, которое ведет учет продуктов и покупок в ресторане
 
 ## Video Demo
 
-[Video Demo](). - на русском
-[Video Demo](). - на английском
+[Video Demo](https://youtu.be/kAdhWCasBZo) -- на русском
+[Video Demo](https://youtu.be/FuucjgUQ8Vg) -- English
 
 ## Инструменты
 
