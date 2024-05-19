@@ -1,7 +1,5 @@
 # Rucola Maze: веб-приложение на Flask, которое ведет учет продуктов и покупок в ресторане
 
-## Video Demo
-
 [Video Demo](https://youtu.be/kAdhWCasBZo) -- на русском
 
 [Video Demo](https://youtu.be/FuucjgUQ8Vg) -- English
